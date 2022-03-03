@@ -53,7 +53,7 @@ Adjusted full load fueling (ip_lamb_fl__n)
 Adjusted cold start fueling (ip_fac_ti_tco_wup)
 Increased idle speed to 850 (8 maps, too lazy to list them)
 Cat and rear O2 sensor delete:
-   Disabled post-cat O2 sensor heating function (lc_lsh_down_1, lc_lsh_down_2)
+Disabled post-cat O2 sensor heating function (lc_lsh_down_1, lc_lsh_down_2)
    Disabled post-cat O2 sensor diagnostics (lc_inh_ls_down_man_deac)
    Disabled cat efficiency diagnostics (lc_inh_cat_diag_man_deac)
    Removed cat warmup cycle on startup (ip_t_ch_tq_add, ip_t_ch_tq_add_is)
