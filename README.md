@@ -3,9 +3,7 @@ Custom tune for an ESS TS2+ kit with 42lb injectors and 79mm pulley on a MS45.1 
 
 ***DISCLAIMER: This archive is provided as-is and without warranty.  Use it at your own risk. If you need tuning support, I highly recommend reaching out to a qualified tuner.***
 
-Credit and thanks goes out to Frank Smith at TTFS (www.tuningtechfs.com) for his support, committment, and resources
-Also huge thanks to bimmerlabs.com for providing a means to flash the files onto the car back when there weren't any.  
-Without them, this wouldn't be possible.
+Credit and thanks goes out to Frank Smith at TTFS (www.tuningtechfs.com) for his support, committment, and resources. Also huge thanks to bimmerlabs.com for providing a means to flash the files onto the car back when there weren't any. Without them, this wouldn't be possible.
 
 >**Your MS45.1 DME must be flashed to HW version 7561382 (this is included in a number of ZB versions for MS45.1, such as ZB 7561520 for the ZHP models)**
 
@@ -50,17 +48,17 @@ Changes for removed cats:
 - Force OBD cat readiness with LC_LS_CAT_DIAG_CDN_MAN_ACT
 
 Intake Manifold Model and torque tables:
-- Adjust ip_eff_vol_slop_max and ip_eff_vol_slop_cam_vo based on increased volume of air flow possible through manifold
-- Adjust the mg/stk axis of ip_tqi_ref__n__maf and ip_tqi_ref_mon
-- Adjust the values of ip_maf_sp based on the changes to the axis of ip_tqi_ref__n__maf and ip_tqi_ref_mon
+- Adjust IP_EFF_VOL_SLOP_MAX and IP_EFF_VOL_SLOP_CAM_VO based on increased volume of air flow possible through manifold
+- Adjust the mg/stk axis of IP_TQI_REF__N__MAF and IP_TQI_REF_MON
+- Adjust the values of IP_MAF_SP based on the changes to the axis of ip_tqi_ref__n__maf and ip_tqi_ref_mon
 
 Fueling:
-- Impacts of different injectors (size, dwell,fueling)
+- Impacts of different injectors (size, dwell, minimum injection time)
    - C_FAC_MFF_TI_STND_1 and C_FAC_MFF_TI_STND_2 is injector throughput measured by Ms/(mg/stk)
    - IP_TI_ADD_DLY injector dead times
    - C_TI_MIN and C_TI_MIN_THD should equal min injector inj time, with threshold being slightly higher than c_ti_min.
 - Add a bit of fuel under heavier part-load scenarios to smooth transition to full load fueling using IP_LAMB_BAS_1 and IP_LAMB_BAS_2
-- Add fuel above 5900 rpm due to maxed out maf IP_MFF_COR_1 and IP_MFF_COR_2
+- Add fuel correction above 5900 rpm due to maxed out maf IP_MFF_COR_1 and IP_MFF_COR_2
 - Set full load fueling targets IP_LAMB_FL__N
 - Add fuel during cold starts to compensate for extra load of the supercharger
    - Set IP_FAC_TI_TCO_WUP set to 1 to eliminate post-lambda corrections
