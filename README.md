@@ -33,9 +33,9 @@ README.md - The file you are reading.
 
 ## Description of tuning changes from stock
 
-Learned variants need to be reset for the DME to change LV_SAP and LV_LSH_DOWN to 0 when it cannot detect the SAP or downstream O2 sensors afte they've been removed from the car.  Learned variants are reset by changing LC_AD_CLR_VAR to 1 and starting the car, then changing LC_AD_CLR_VAR back to 0.  
+Learned variants need to be reset for the DME to change LV_VAR_SAP and LV_VAR_LSH_DOWN to 0 when it cannot detect the SAP or downstream O2 sensors after they've been removed from the car.  Learned variants are only reset by changing LC_AD_CLR_VAR to 1 and starting the car, then changing LC_AD_CLR_VAR back to 0.  
 
-Changes for removed cats:  
+Changes for removed cats and downstream o2 sensors:  
 - C_CONF_CAT changed to 0 to set exhaust confiuration (2 upstream O2 sensors only, with cats)  
 - Disabled cat heating:
    - 	Set IP_T_CH_TQ_ADD = IP_T_CH_TQ_ADD_WOUT_CAT
@@ -68,7 +68,7 @@ Fueling:
 Ignition timing:
 - Dial back ignition timing in IP_IGA_BAS_RON_98__N__MAF & IP_IGA_BAS_RON_91__N__MAF 
 - Dial back IP_IGA_BAS__N__MAF for good measure in case vanos is disabled or broke 
-- Adjust temperature effects on timing using IP_IGA_BAS_TEMP_COR__TCO__TIA (supercharger is going to generate more heat than a N/A motor)
+- Adjust temperature based timing retards to be more aggressive using IP_IGA_BAS_TEMP_COR__TCO__TIA (supercharger is going to be more susceptible to heat)
 
 Impacts of removed DISA (variable intake manifold):
 - Set ip_eff_vol_slop_cam_vo_vim = ip_eff_vol_slop_cam_vo
