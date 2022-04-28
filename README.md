@@ -71,9 +71,9 @@ Ignition timing:
 - Adjust temperature based timing retards to be more aggressive using IP_IGA_BAS_TEMP_COR__TCO__TIA (supercharger is going to be more susceptible to heat)
 
 Impacts of removed DISA (variable intake manifold):
-- Set ip_eff_vol_slop_cam_vo_vim = ip_eff_vol_slop_cam_vo
-- Set ip_eff_vol_slop_cam_in_vim = ip_eff_vol_slop_cam_in
-- c_det_inc_vim = 0 to disable SES light from missing valve
+- Set IP_EFF_VOL_SLOP_CAM_VO_VIM = ip_eff_vol_slop_cam_vo
+- Set IP_EFF_VOL_SLOP_CAM_IN_VIM = ip_eff_vol_slop_cam_in
+- C_DET_INC_VIM = 0 to disable SES light from missing valve
 
 Misc changes:
 - Remove speed limiter by setting C_VS_MAX to 255
