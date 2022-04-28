@@ -10,7 +10,7 @@ Credit and thanks goes out to Frank Smith at TTFS (www.tuningtechfs.com) for his
 This tune was developed on a 2003 BMW 330i ZHP with the following modifications:  
 - MS45.1 flashed to HW version 7561382 (see Renovelo's site for list of MS45.1 ZB package versions that include HW 7561382: https://www.renovelo.com/bytetuner-vehicle-compatibility/ )  
 - ESS Twin Screw Stage 2+ supercharger kit with 79mm pulley  
-- Schrick 248/252 cams  
+- Schrick 248/256 cams  
 - Bosch 42lb "Green Giant" fuel injectors  
 - Upgraded fuel pump  
 - Catless headers  
