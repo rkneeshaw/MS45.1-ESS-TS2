@@ -36,7 +36,7 @@ README.md - The file you are reading.
 Learned variants need to be reset for the DME to change LV_VAR_SAP and LV_VAR_LSH_DOWN to 0 when it cannot detect the SAP or downstream O2 sensors after they've been removed from the car.  Learned variants are only reset by changing LC_AD_CLR_VAR to 1 and starting the car, then changing LC_AD_CLR_VAR back to 0.  
 
 Changes for removed cats and downstream o2 sensors:  
-- C_CONF_CAT changed to 0 to set exhaust confiuration (2 upstream O2 sensors only, with cats)  
+- C_CONF_CAT changed to 0 to set exhaust configuration (2 upstream O2 sensors only, with cats)  
 - Disabled cat heating:
    - 	Set IP_T_CH_TQ_ADD = IP_T_CH_TQ_ADD_WOUT_CAT
    - 	Set IP_T_CH_TQ_ADD_IS = IP_T_CH_TQ_ADD_IS_WOUT_CAT
@@ -61,9 +61,9 @@ Fueling:
 - Add fuel correction above 5900 rpm due to maxed out maf IP_MFF_COR_1 and IP_MFF_COR_2
 - Set full load fueling targets IP_LAMB_FL__N
 - Add fuel during cold starts to compensate for extra load of the supercharger
-   - Set IP_FAC_TI_TCO_WUP set to 1 to eliminate post-lambda corrections
+   - Adjust IP_FAC_TI_TCO_WUP post-lambda-setpoint corrections (stock config has this table leaning things out)
    - Added fuel to IP_LAMB_BAS_WUP_COR for more fuel on warmup
-   - Reduce idle warmup reductions IP_FAC_LAMB_WUP_IS
+   - Reduce corrections by increasing values < 1 in IP_FAC_LAMB_WUP and IP_FAC_LAMB_WUP_IS (these are multiplied by ip_lamb_bas_wup_cor to adjust warmup lambda setpoint)
 
 Ignition timing:
 - Dial back ignition timing in IP_IGA_BAS_RON_98__N__MAF & IP_IGA_BAS_RON_91__N__MAF 
