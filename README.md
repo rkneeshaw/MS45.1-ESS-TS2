@@ -27,8 +27,8 @@ https://www.ms4x.net/index.php?title=Siemens_MS45 - MS45.1 tuning wiki, feel fre
 
 Files included in this repo:  
 330i-zhp-ts2-42lb-79mm_v263.bin - Partial 128k bin of the configuration space  
+330i-zhp-ts2-42lb-79mm_v263.dme2 - Renovelo ByteTuner file  
 330i-zhp-ts2-42lb-79mm_v263_full.bin - Full 1024k bin includes the program and configuration space, provided for posterity  
-330i-zhp-ts2-42lb-79mm_v263.dme2 - Renovelo ByteTuner tuner file  
 README.md - The file you are reading.  
 
 
