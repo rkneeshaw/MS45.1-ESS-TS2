@@ -1,5 +1,5 @@
 # MS45.1-ESS-TS2
-Custom tune for an ESS TS2+ kit with 42lb injectors and 79mm pulley on a MS45.1 DME 
+Custom tune for an ESS TS2 Supercharged E46 BMW 330i ZHP using 42lb injectors and 79mm pulley (MS45.1 DME)
 
 ***DISCLAIMER: This archive is provided as-is and without warranty.  Use it at your own risk. If you need tuning support, I highly recommend reaching out to a qualified tuner.***
 
