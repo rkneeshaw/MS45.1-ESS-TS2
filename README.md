@@ -23,6 +23,7 @@ http://www.tuningtechnfs.com - Frank Smith tuning services
 https://www.bimmerlabs.com/store - Buy a USB-OBDII cable  
 https://www.renovelo.com/ - ByteTuner for tuning and logging, or ByteLogger just for logging, and good info in the forums  
 https://www.ms4x.net/index.php?title=Siemens_MS45 - MS45.1 tuning wiki, feel free to contribute!  
+https://github.com/terraphantm/MS45-Flasher - MS45 Flasher utility, can be used to flash by bin files onto your MS45.1 DME
 
 
 Files included in this repo:  
