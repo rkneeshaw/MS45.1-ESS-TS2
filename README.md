@@ -26,9 +26,9 @@ https://www.ms4x.net/index.php?title=Siemens_MS45 - MS45.1 tuning wiki, feel fre
 
 
 Files included in this repo:  
-330i-zhp-ts2-42lb-79mm_v263.bin - Partial 128k bin of the configuration space  
-330i-zhp-ts2-42lb-79mm_v263.dme2 - Renovelo ByteTuner file  
-330i-zhp-ts2-42lb-79mm_v263_full.bin - Full 1024k bin includes the program and configuration space, provided for posterity  
+330i-zhp-ts2-42lb-79mm_v***.bin - Partial 128k bin of the configuration space  
+330i-zhp-ts2-42lb-79mm_v***.dme2 - Renovelo ByteTuner file  
+330i-zhp-ts2-42lb-79mm_v***_full.bin - Full 1024k bin includes the program and configuration space, provided for posterity  
 README.md - The file you are reading.  
 
 
@@ -47,11 +47,14 @@ Changes for removed cats and downstream o2 sensors:
    - 	Set LC_INH_TQ_ADD_CH to 1 Disable torque reserve request for cat heating
 - Disable cat purge function, set C_N_MAX_CAT_PURGE to 100
 - Force OBD cat readiness with LC_LS_CAT_DIAG_CDN_MAN_ACT
+- Raised cat overheat limits to avoid unwanted lambda enrichment using IP_TEG_COP_SP and IP_TEG_COP_SP_LIM
 
 Intake Manifold Model and torque tables:
 - Adjust IP_EFF_VOL_SLOP_MAX and IP_EFF_VOL_SLOP_CAM_VO based on increased volume of air flow possible through manifold
 - Adjust the mg/stk axis of IP_TQI_REF__N__MAF and IP_TQI_REF_MON
-- Adjust the values of IP_MAF_SP based on the changes to the axis of ip_tqi_ref__n__maf and ip_tqi_ref_mon
+- Adjust the values of IP_MAF_SP based on the changes to the axis of IP_TQI_REF__N__MAF and IP_TQI_REF_MON
+- Set alternator torque loss to -12 to compensate for supercharger friction losses which should aid drivability using C_TQ_LOSS_ALTER_LIH
+- Added additional torque losses on startup to compensate for supercharger load in IP_TQFR_ST
 
 Fueling:
 - Impacts of different injectors (size, dwell, minimum injection time)
@@ -61,10 +64,8 @@ Fueling:
 - Add a bit of fuel under heavier part-load scenarios to smooth transition to full load fueling using IP_LAMB_BAS_1 and IP_LAMB_BAS_2
 - Add fuel correction above 5900 rpm due to maxed out maf IP_MFF_COR_1 and IP_MFF_COR_2
 - Set full load fueling targets IP_LAMB_FL__N
-- Add fuel during cold starts to compensate for extra load of the supercharger
-   - Adjust IP_FAC_TI_TCO_WUP post-lambda-setpoint corrections (stock config has this table leaning things out)
-   - Added fuel to IP_LAMB_BAS_WUP_COR for more fuel on warmup
-   - Reduce corrections by increasing values < 1 in IP_FAC_LAMB_WUP and IP_FAC_LAMB_WUP_IS (these are multiplied by ip_lamb_bas_wup_cor to adjust warmup lambda setpoint)
+- Added fuel to IP_LAMB_BAS_WUP_COR for more fuel on warmup
+- Increased C_MAF_MFF_AD_MAX to ensure proper adaptations
 
 Ignition timing:
 - Dial back ignition timing in IP_IGA_BAS_RON_98__N__MAF & IP_IGA_BAS_RON_91__N__MAF 
@@ -81,3 +82,4 @@ Misc changes:
 - Set max maf diag threshold C_MAF_MAX_DIAG
 - Update IP_MAF_1_DIAG__N_32__TPS_AV with realistic maf values so TPS diags don’t trip
 - Change C_OBD_STATE_2 to 101 (109 is stock).  101 will show SAP tests are supported in OBD2
+- Adjust IP_FAC_TQ_REQ_DRIV to make throttle response a bit more linear and not so punchy for throttle management under aggressive driving scenarios
